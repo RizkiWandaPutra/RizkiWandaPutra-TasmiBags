@@ -50,7 +50,7 @@
                                             <div class="form-floating mb-3">
                                                 <input disabled type="email" class="form-control" id="floatingInput"
                                                     placeholder="name@example.com" name="username" required
-                                                    value="<?php echo $_SESSION['username_decafe'] ?>">
+                                                    value="">
                                                 <label for="floatingInput">Username</label>
                                                 <div class="invalid-feedback">
                                                     Masukkan Username
@@ -276,11 +276,9 @@
                         </div>
                         <!-- Akhir Modal tambah user baru-->
             
-                        <?php
-                        foreach ($result as $row) {
-                        ?>
+
                         <!-- Modal view -->
-                        <div class="modal fade" id="ModalView<?php echo $row['id'] ?>" tabindex="-1"
+                        <div class="modal fade" id="ModalView" tabindex="-1"
                             aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-xl modal-fullscreen-md-down">
                                 <div class="modal-content">
@@ -295,7 +293,7 @@
                                                 <div class="col-lg-6">
                                                     <div class="form-floating mb-3">
                                                         <input disabled type="text" class="form-control" id="floatingInput"
-                                                            placeholder="Your Name" name="nama" value="<?php echo $row['nama'] ?>">
+                                                            placeholder="Your Name" name="nama" value="">
                                                         <label for="floatingInput">Nama</label>
                                                         <div class="invalid-feedback">
                                                             Masukkan Nama
@@ -306,7 +304,7 @@
                                                     <div class="form-floating mb-3">
                                                         <input disabled type="email" class="form-control" id="floatingInput"
                                                             placeholder="name@example.com" name="username"
-                                                            value="<?php echo $row['username'] ?>">
+                                                            value="">
                                                         <label for="floatingInput">Username</label>
                                                         <div class="invalid-feedback">
                                                             Masukkan Username
@@ -330,14 +328,14 @@
                                                 <div class="col-lg-8">
                                                     <div class="form-floating mb-3">
                                                         <input disabled type="number" class="form-control" id="floatingInput"
-                                                            placeholder="08xxxxxx" name="nohp" value="<?php echo $row['nohp'] ?>">
+                                                            placeholder="08xxxxxx" name="nohp" value="">
                                                         <label for="floatingInput">No Hp</label>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="form-floating">
                                                 <textarea disabled class="form-control" id="" style="height:100px;" name="alamat"
-                                                    value="<?php echo $row['alamat'] ?>"></textarea>
+                                                    value=""></textarea>
                                                 <label for="floatingInput">Alamat</label>
                                             </div>
                                             <div class="modal-footer">
@@ -352,7 +350,7 @@
                         <!-- akhir Modal view-->
             
                         <!-- Modal edit -->
-                        <div class="modal fade" id="ModalEdit<?php echo $row['id'] ?>" tabindex="-1"
+                        <div class="modal fade" id="ModalEdit" tabindex="-1"
                             aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-xl modal-fullscreen-md-down">
                                 <div class="modal-content">
@@ -363,13 +361,13 @@
                                     <div class="modal-body">
                                         <form class="needs-validation" novalidate action="proses/proses_edit_user.php"
                                             method="POST">
-                                            <input type="hidden" value="<?php echo $row['id'] ?>" name="id">
+                                            <input type="hidden" value="" name="id">
                                             <div class="row">
                                                 <div class="col-lg-6">
                                                     <div class="form-floating mb-3">
                                                         <input type="text" class="form-control" id="floatingInput"
                                                             placeholder="Your Name" name="nama" required
-                                                            value="<?php echo $row['nama'] ?>">
+                                                            value="">
                                                         <label for="floatingInput">Nama</label>
                                                         <div class="invalid-feedback">
                                                             Masukkan Nama
@@ -378,9 +376,7 @@
                                                 </div>
                                                 <div class="col-lg-6">
                                                     <div class="form-floating mb-3">
-                                                        <input <?php echo ($row['username'] == $_SESSION['username_tasmi']) ? 'disabled' : ''; ?> type="email" class="form-control" id="floatingInput"
-                                                            placeholder="name@example.com" name="username" required
-                                                            value="<?php echo $row['username'] ?>">
+                                                        <input ">
                                                         <label for="floatingInput">Username</label>
                                                         <div class="invalid-feedback">
                                                             Masukkan Username
@@ -393,16 +389,7 @@
                                                     <div class="form-floating mb-3">
                                                         <select class="form-select" aria-label="Default select example" required
                                                             name="level" id="">
-                                                            <?php
-                            $data = array("Owner/Admin", "Kasir", "Karyawan");
-                            foreach ($data as $key => $value) {
-                                if ($row['level'] == $key + 1) {
-                                    echo "<option selected value=" . ($key + 1) . ">$value</option>";
-                                } else {
-                                    echo "<option value=" . ($key + 1) . ">$value</option>";
-                                }
-                            }
-                                                            ?>
+                                                            
                                                         </select>
                                                         <label for="floatingInput">Level User</label>
                                                         <div class="invalid-feedback">
@@ -413,14 +400,14 @@
                                                 <div class="col-lg-8">
                                                     <div class="form-floating mb-3">
                                                         <input type="number" class="form-control" id="floatingInput"
-                                                            placeholder="08xxxxxx" name="nohp" value="<?php echo $row['nohp'] ?>">
+                                                            placeholder="08xxxxxx" name="nohp" value="">
                                                         <label for="floatingInput">No Hp</label>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="form-floating">
                                                 <textarea class="form-control" id="" style="height:100px;" name="alamat"
-                                                    value="<?php echo $row['alamat'] ?>"></textarea>
+                                                    value=""></textarea>
                                                 <label for="floatingInput">Alamat</label>
                                             </div>
                                             <div class="modal-footer">
@@ -437,7 +424,7 @@
                         <!-- akhir Modal edit-->
             
                         <!-- Modal Delete -->
-                        <div class="modal fade" id="ModalDelete<?php echo $row['id'] ?>" tabindex="-1"
+                        <div class="modal fade" id="ModalDelete" tabindex="-1"
                             aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-md modal-fullscreen-md-down">
                                 <div class="modal-content">
@@ -448,23 +435,15 @@
                                     <div class="modal-body">
                                         <form class="needs-validation" novalidate action="proses/proses_delete_user.php"
                                             method="POST">
-                                            <input type="hidden" value="<?php echo $row['id'] ?>" name="id">
+                                            <input type="hidden" value="" name="id">
                                             <div class="col-lg-12">
-                                                <?php
-                            if ($row['username'] == $_SESSION['username_tasmi']) {
-                                echo "<div class='alert alert-danger'>Anda tidak dapat mengahpus akun sendiri</div>";
-                            } else {
-                                echo "Apakah anda yakin ingin menghapus user <b>$row[username]</b>";
-                            }
-                                                ?>
-            
+                                                
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
                                                     data-bs-dismiss="modal">Close</button>
                                                 <button type="submit" class="btn btn-danger" name="input_user_validate" value="1234"
-                                                    <?php echo ($row['username'] == $_SESSION['username_tasmi']) ? 'disabled' : '';
-                                                    ?> >Hapus</button>
+                                                     >Hapus</button>
                                             </div>
                                         </form>
                                     </div>
@@ -474,7 +453,7 @@
                         <!-- akhir Modal Delete-->
             
                         <!-- Modal Reset Password -->
-                        <div class="modal fade" id="ModalResetPassword<?php echo $row['id'] ?>" tabindex="-1"
+                        <div class="modal fade" id="ModalResetPassword" tabindex="-1"
                             aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-md modal-fullscreen-md-down">
                                 <div class="modal-content">
@@ -485,23 +464,16 @@
                                     <div class="modal-body">
                                         <form class="needs-validation" novalidate action="proses/proses_reset_password.php"
                                             method="POST">
-                                            <input type="hidden" value="<?php echo $row['id'] ?>" name="id">
+                                            <input type="hidden" value="" name="id">
                                             <div class="col-lg-12">
-                                                <?php
-                            if ($row['username'] == $_SESSION['username_tasmi']) {
-                                echo "<div class='alert alert-danger'>Anda tidak dapat mereset password sendiri</div>";
-                            } else {
-                                echo "Apakah anda yakin ingin mereset password user ini <b>$row[username]</b> menjadi password bawaan sistem yaitu <b>pasword</b>";
-                            }
-                                                ?>
+                                                
             
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
                                                     data-bs-dismiss="modal">Close</button>
                                                 <button type="submit" class="btn btn-success" name="input_user_validate" value="1234"
-                                                    <?php echo ($row['username'] == $_SESSION['username_tasmi']) ? 'disabled' : '';
-                                                    ?> >Reset Password</button>
+                                                     >Reset Password</button>
                                             </div>
                                         </form>
                                     </div>
@@ -510,13 +482,7 @@
                         </div>
                         <!-- akhir Modal Reset Password-->
             
-                        <?php
-                        }
-                        if (empty($result)) {
-                            echo "Data user tidak ada";
-                        } else {
-            
-                        ?>
+                        
                         <div class="table-responsive">
                             <table class="table table-hover">
                                 <thead>
@@ -530,10 +496,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php
-                            $no = 1;
-                            foreach ($result as $row) {
-                                    ?>
+                                    
                                     <tr>
                                         <th scope="row">
                                             1
@@ -552,28 +515,24 @@
                                         </td>
                                         <td class="d-flex">
                                             <button class="btn btn-info btn-sm me-1" data-bs-toggle="modal"
-                                                data-bs-target="#ModalView<?php echo $row['id'] ?>"><i
+                                                data-bs-target="#ModalView"><i
                                                     class="bi bi-eye-fill"></i></button>
                                             <button class="btn btn-warning btn-sm me-1" data-bs-toggle="modal"
-                                                data-bs-target="#ModalEdit<?php echo $row['id'] ?>"><i
+                                                data-bs-target="#ModalEdit"><i
                                                     class="bi bi-pencil-square"></i></button>
                                             <button class="btn btn-danger btn-sm me-1" data-bs-toggle="modal"
-                                                data-bs-target="#ModalDelete<?php echo $row['id'] ?>"><i
+                                                data-bs-target="#ModalDelete"><i
                                                     class="bi bi-trash-fill"></i></button>
                                             <button class="btn btn-secondary btn-sm" data-bs-toggle="modal"
-                                                data-bs-target="#ModalResetPassword<?php echo $row['id'] ?>"><i
+                                                data-bs-target="#ModalResetPassword"><i
                                                     class="bi bi-key"></i></button>
                                         </td>
                                     </tr>
-                                    <?php
-                            }
-                                    ?>
+                                    
                                 </tbody>
                             </table>
                         </div>
-                        <?php
-                        }
-                        ?>
+                        
                     </div>
                 </div>
             </div>
@@ -581,7 +540,7 @@
         </div>
 
         <div class="fixed-bottom text-center mb-2">
-            Tacenda - TI 2A
+            Rizki Wanda Putra - TI 2A
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"

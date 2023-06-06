@@ -50,7 +50,7 @@
                                             <div class="form-floating mb-3">
                                                 <input disabled type="email" class="form-control" id="floatingInput"
                                                     placeholder="name@example.com" name="username" required
-                                                    value="<?php echo $_SESSION['username_decafe'] ?>">
+                                                    value="">
                                                 <label for="floatingInput">Username</label>
                                                 <div class="invalid-feedback">
                                                     Masukkan Username
