@@ -41,9 +41,9 @@ Route::get('nota', function () {
     return view('nota');
 });
 
-Route::get('produk', function () {
-    return view('produk');
-});
+// Route::get('produk', function () {
+//     return view('produk');
+// });
 
 Route::get('pembelian', function () {
     return view('pembelian');
@@ -62,7 +62,8 @@ Route::get('user', function () {
 });
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/welcome', [App\Http\Controllers\HomeController::class, 'home'])->name('/');
+Route::get('/produk', [App\Http\Controllers\HomeController::class, 'index'])->name('produk');
 
 // Route::middleware(['auth'])->group(function () {
 //     Auth::routes();

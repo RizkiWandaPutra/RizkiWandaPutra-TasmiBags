@@ -4,13 +4,13 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <a href="{{ url('home') }}" class="btn btn-primary"><i class="bi bi-arrow-left"></i> Kembali</a>
+            <a href="{{ url('produk') }}" class="btn btn-primary"><i class="bi bi-arrow-left"></i> Kembali</a>
         </div>
         <div class="col-md-12 mt-2">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                  <li class="breadcrumb-item"><a href="#">Home</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Library</li>
+                  <li class="breadcrumb-item"><a href="/">Home</a></li>
+                  <li class="breadcrumb-item"><a href="{{ url('produk') }}">Produk</a></li>
                 </ol>
               </nav>
         </div>
