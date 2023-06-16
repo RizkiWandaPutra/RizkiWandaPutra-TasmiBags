@@ -66,8 +66,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 // Route::middleware(['auth'])->group(function () {
 //     Auth::routes();
-
-Route::get('pesan/{id}', 'PesanController@index');
+// Route::get('pesan/{id}, [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('pesan/{id}', [App\Http\Controllers\PesanController::class, 'index']);
 // Route::post('pesan/{id}', 'PesanController@pesan');
 // Route::get('check-out', 'PesanController@check_out');
 // Route::delete('check-out/{id}', 'PesanController@delete');

@@ -8,6 +8,14 @@
     <div class="col-lg-12 mt-2">
         <div class="card">
             </div>
+            <div class="col-md-12 mt-2">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{{ url('welcome') }}">Home</a></li>
+                        <li class="breadcrumb-item"><a href="{{ url('home') }}">Produk</a></li>
+                    </ol>
+                  </nav>
+            </div>
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">TasmiBags</h5>
