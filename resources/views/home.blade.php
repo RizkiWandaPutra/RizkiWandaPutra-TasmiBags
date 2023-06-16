@@ -3,21 +3,24 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
-
+        @foreach($produks as $produk)
+        <div class="col-md-3">
+            <div class="card" style="width: 12rem;">
+                <img src="{{url('img/produk')}}/{{ $produk->gambar }}" class="card-img-top" alt="...">
                 <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    {{ __('You are logged in!') }}
+                  <h5 class="card-title">{{ $produk->nama_produk }}</h5>
+                  <p class="card-text">
+                    <strong>Harga :</strong> Rp.{{ $produk->harga }} <br>
+                    <strong>Stok : </strong> {{ $produk->stok }} <br>
+                    <hr>
+                    <strong>Keterangan :</strong> <br>
+                    {{ $produk->keterangan}}
+                  </p>
+                  <a href="#" class="btn btn-primary"><i class="bi bi-cart-plus"></i> Pesan</a>
                 </div>
-            </div>
+              </div>
         </div>
+        @endforeach
     </div>
 </div>
 @endsection
