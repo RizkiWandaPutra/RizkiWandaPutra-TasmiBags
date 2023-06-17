@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <!-- Header -->
+    <!-- Header --> 
     <nav class="navbar navbar-expand navbar-dark bg-primary sticky-top">
         <div class="container-lg">
             <a class="navbar-brand" href="."><i class="bi bi-handbag-fill fs-1-md"></i> Tasmi Bags</a>
