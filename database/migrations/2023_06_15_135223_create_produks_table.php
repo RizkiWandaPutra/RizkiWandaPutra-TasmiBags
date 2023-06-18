@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('nama_produk');
             $table->string('gambar');
-            $table->string('stok');
+            $table->integer('stok');
             $table->string('keterangan');
-            $table->string('harga');
+            $table->integer('harga');
             $table->timestamps();
         });
     }
