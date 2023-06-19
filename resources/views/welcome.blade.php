@@ -6,8 +6,6 @@
     <div class="row">
     
     <div class="col-lg-12 mt-2">
-        <div class="card">
-            </div>
             <div class="col-md-12 mt-2">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
