@@ -6,14 +6,8 @@
     <div class="row">
     
     <div class="col-lg-12 mt-2">
-            <div class="col-md-12 mt-2">
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ url('produk') }}">Produk</a></li>
-                    </ol>
-                  </nav>
-            </div>
-            <div class="card">
+        <a class="btn btn-primary" href="{{ url('produk') }}" role="button">produk</a>
+            <div class="card mt-3">
                 <div class="card-body">
                     <h5 class="card-title">TasmiBags</h5>
                     <p class="card-text">Menjual Tas dan Sepatu</p>
