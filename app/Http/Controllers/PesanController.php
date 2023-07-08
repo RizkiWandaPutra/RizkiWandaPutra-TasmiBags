@@ -5,6 +5,7 @@ use App\Models\Produk;
 use App\Models\Pesanan;
 use App\Models\PesananDetail;
 use Auth;
+use Alert;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -79,6 +80,7 @@ class PesanController extends Controller
         $pesanan->jumlah_harga = $pesanan->jumlah_harga+$produk->harga*$request->jumlah_pesan;
         $pesanan->update();
 
+        Alert::success('Pesanan sukses masuk keranjang', 'Success');
         return redirect('produk');
     }
 }
