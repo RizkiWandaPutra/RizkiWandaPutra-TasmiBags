@@ -17,7 +17,7 @@
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
-<body style="background-image: url(img/tasmi/background1.jpg)">
+<body style="background-image: url(img/tasmi/15.jpg)">
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-primary shadow-sm">
             <div class="container">
