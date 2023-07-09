@@ -28,7 +28,7 @@
                                     <tr>
                                         <td>Harga</td>
                                         <td>:</td>
-                                        <td>Rp. {{number_format($produk->harga)}}</td>
+                                        <td>Rp. {{ number_format($produk->harga) }}</td>
                                     </tr>
                                     <tr>
                                         <td>Stok</td>

@@ -20,7 +20,8 @@
                     <h3><i class="bi bi-cart-fill"></i> Check Out</h3>
                     @if(!empty($pesanan))
                     <p align="right">Tanggal Pesan : {{ $pesanan->tanggal }}</p>
-                    <table class="table table-bordered">
+                    <div class="table-responsive">
+                    <table class="table table-hover">
                         <thead>
                             <tr>
                                 <th>No</th>
@@ -60,6 +61,7 @@
                             </tr>
                         </tbody>
                     </table>
+                    </div>
                     @endif
                 </div>
             </div>
