@@ -40,9 +40,16 @@
                         <li class="nav-item">
                             <?php
                             $pesanan_utama = \App\Models\Pesanan::where('user_id', Auth::user()->id)->where('status',0)->first();
-                            $notif = \App\Models\PesananDetail::where('pesanan_id', $pesanan_utama->id)->count();
+                            if(!empty($pesanan_utama))
+                            {
+                                $notif = \App\Models\PesananDetail::where('pesanan_id', $pesanan_utama->id)->count();
+                            }
                             ?>
-                            <a class="nav-link" href="{{ url('check-out') }}"><i class="bi bi-cart-fill"></i><span class="badge text-bg-danger">{{ $notif }}</span></a>
+                            <a class="nav-link" href="{{ url('check-out') }}">
+                                <i class="bi bi-cart-fill"></i>
+                                @if(!empty($notif))
+                                <span class="badge text-bg-danger">{{ $notif }}</span></a>
+                                @endif
                         </li>
                         @guest
                             @if (Route::has('login'))

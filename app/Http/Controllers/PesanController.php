@@ -87,7 +87,11 @@ class PesanController extends Controller
     public function check_out()
     {
         $pesanan = Pesanan::where('user_id', Auth::user()->id)->where('status',0)->first();
-        $pesanan_details = PesananDetail::where('pesanan_id', $pesanan->id)->get();
+        $pesanan_details = [];
+        if(!empty($pesanan))
+        {
+            $pesanan_details = PesananDetail::where('pesanan_id', $pesanan->id)->get();
+        }
 
         return view('pesan.check_out', compact('pesanan', 'pesanan_details'));
     }
@@ -110,8 +114,16 @@ class PesanController extends Controller
     public function konfirmasi()
     {
         $pesanan = Pesanan::where('user_id', Auth::user()->id)->where('status',0)->first();
+        $pesanan_id = $pesanan->id;
         $pesanan->status = 1;
         $pesanan->update();
+
+        $pesanan_details = PesananDetail::where('pesanan_id', $pesanan_id)->get();
+        foreach ($pesanan_details as $pesanan_detail) {
+            $produk = Produk::where('id', $pesanan_detail->produk_id)->first();
+            $produk->stok = $produk->stok-$pesanan_detail->jumlah;
+            $produk->update();
+        }
 
         Alert::success('Pesanan sukses Check Out', 'Success');
         return redirect('check-out');

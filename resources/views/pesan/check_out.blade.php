@@ -18,6 +18,7 @@
             <div class="card">
                 <div class="card-body">
                     <h3><i class="bi bi-cart-fill"></i> Check Out</h3>
+                    @if(!empty($pesanan))
                     <p align="right">Tanggal Pesan : {{ $pesanan->tanggal }}</p>
                     <table class="table table-bordered">
                         <thead>
@@ -31,8 +32,8 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php $no = 1;?>
-                            @foreach ($pesanan_details as $pesanan_detail)    
+                            <?php $no = 1; ?>
+                            @foreach($pesanan_details as $pesanan_detail)    
                             <tr>
                                 <th>{{ $no++ }}</th>
                                 <td>{{ $pesanan_detail->produk->nama_produk }}</td>
@@ -43,7 +44,7 @@
                                     <form action="{{ url('check-out') }}/{{ $pesanan_detail->id }}" method="POST">
                                         @csrf
                                         {{ method_field('DELETE') }}
-                                        <button type="submit" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></button>
+                                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Anda yakin ingin menghapus data?');"><i class="bi bi-trash"></i></button>
                                     </form>
                                 </td>
                             </tr>
@@ -59,6 +60,7 @@
                             </tr>
                         </tbody>
                     </table>
+                    @endif
                 </div>
             </div>
         </div>
