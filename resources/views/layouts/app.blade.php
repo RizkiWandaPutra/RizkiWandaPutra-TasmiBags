@@ -37,20 +37,7 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
-                        <li class="nav-item">
-                            <?php
-                            $pesanan_utama = \App\Models\Pesanan::where('user_id', Auth::user()->id)->where('status',0)->first();
-                            if(!empty($pesanan_utama))
-                            {
-                                $notif = \App\Models\PesananDetail::where('pesanan_id', $pesanan_utama->id)->count();
-                            }
-                            ?>
-                            <a class="nav-link" href="{{ url('check-out') }}">
-                                <i class="bi bi-cart-fill"></i>
-                                @if(!empty($notif))
-                                <span class="badge text-bg-danger">{{ $notif }}</span></a>
-                                @endif
-                        </li>
+                        
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
@@ -64,6 +51,21 @@
                                 </li>
                             @endif
                         @else
+                        <li class="nav-item">
+                            <?php
+                            $pesanan_utama = \App\Models\Pesanan::where('user_id', Auth::user()->id)->where('status',0)->first();
+                            if(!empty($pesanan_utama))
+                            {
+                                $notif = \App\Models\PesananDetail::where('pesanan_id', $pesanan_utama->id)->count();
+                            }
+                            ?>
+                            <a class="nav-link" href="{{ url('check-out') }}">
+                                <i class="bi bi-cart-fill"></i>
+                                @if(!empty($notif))
+                                <span class="badge text-bg-danger">{{ $notif }}</span>
+                                @endif
+                            </a>
+                        </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
