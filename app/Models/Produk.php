@@ -8,6 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Produk extends Model
 {
     public function pesanan_detail(){
-        return $this->hasMany('App\Models\PesananDetail','barang_id','id');
+        return $this->hasMany('App\Models\PesananDetail','produk_id','id');
     }
 }

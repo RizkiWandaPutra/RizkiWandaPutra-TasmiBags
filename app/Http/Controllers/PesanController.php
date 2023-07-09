@@ -83,4 +83,38 @@ class PesanController extends Controller
         Alert::success('Pesanan sukses masuk keranjang', 'Success');
         return redirect('produk');
     }
+
+    public function check_out()
+    {
+        $pesanan = Pesanan::where('user_id', Auth::user()->id)->where('status',0)->first();
+        $pesanan_details = PesananDetail::where('pesanan_id', $pesanan->id)->get();
+
+        return view('pesan.check_out', compact('pesanan', 'pesanan_details'));
+    }
+
+    public function delete($id)
+    {
+        $pesanan_detail = PesananDetail::where('id', $id)->first();
+
+        $pesanan = Pesanan::where('id', $pesanan_detail->pesanan_id)->first();
+        $pesanan->jumlah_harga = $pesanan->jumlah_harga-$pesanan_detail->jumlah_harga;
+        $pesanan->update();
+
+
+        $pesanan_detail->delete();
+
+        Alert::error('Pesanan sukses Dihapus', 'Hapus');
+        return redirect('check-out');
+    }
+
+    public function konfirmasi()
+    {
+        $pesanan = Pesanan::where('user_id', Auth::user()->id)->where('status',0)->first();
+        $pesanan->status = 1;
+        $pesanan->update();
+
+        Alert::success('Pesanan sukses Check Out', 'Success');
+        return redirect('check-out');
+    }
+
 }

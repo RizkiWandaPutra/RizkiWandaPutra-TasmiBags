@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Pesanan extends Model
 {
     public function user(){
-        return $this->belongTo('App\Models\User','user_id','id');
+        return $this->belongsTo('App\Models\User','user_id','id');
     }
 
     public function pesanan_detail(){

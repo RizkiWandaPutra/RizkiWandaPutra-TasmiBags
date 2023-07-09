@@ -37,6 +37,13 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
+                        <li class="nav-item">
+                            <?php
+                            $pesanan_utama = \App\Models\Pesanan::where('user_id', Auth::user()->id)->where('status',0)->first();
+                            $notif = \App\Models\PesananDetail::where('pesanan_id', $pesanan_utama->id)->count();
+                            ?>
+                            <a class="nav-link" href="{{ url('check-out') }}"><i class="bi bi-cart-fill"></i><span class="badge text-bg-danger">{{ $notif }}</span></a>
+                        </li>
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
