@@ -4,8 +4,8 @@
 <div class="container">
     <div class="row justify-content-center">
         @foreach($produks as $produk)
-        <div class="col-md-3">
-            <div class="card" style="width: 12rem;">
+        <div class="col-md-3 mb-5">
+            <div class="card"">
                 <img src="{{url('img/produk')}}/{{ $produk->gambar }}" class="card-img-top" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">{{ $produk->nama_produk }}</h5>
