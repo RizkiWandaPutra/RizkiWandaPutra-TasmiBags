@@ -10,7 +10,7 @@
                 <div class="card-body">
                   <h5 class="card-title">{{ $produk->nama_produk }}</h5>
                   <p class="card-text">
-                    <strong>Harga :</strong> Rp.{{ $produk->harga }} <br>
+                    <strong>Harga :</strong> Rp.{{ number_format($produk->harga) }} <br>
                     <strong>Stok : </strong> {{ $produk->stok }} <br>
                     <hr>
                     <strong>Keterangan :</strong> <br>
